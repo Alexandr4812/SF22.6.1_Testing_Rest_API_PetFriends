@@ -7,4 +7,7 @@
 
 Информация ответа:
 ------------------
+Тело ответа:
 {'key': 'c53f64243415812772127d74adac3960bf28f765886710a384ccd6d2'}
+Заголовок ответа:
+({'Connection': 'keep-alive', 'Server': 'gunicorn/20.0.4', 'Date': 'Wed, 10 Nov 2021 19:14:09 GMT', 'Content-Type': 'application/json', 'Content-Length': '67', 'Access-Control-Allow-Origin': '*', 'Via': '1.1 vegur'},)

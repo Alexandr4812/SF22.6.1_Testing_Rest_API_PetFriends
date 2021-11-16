@@ -14,8 +14,10 @@ pf = PetFriends()
 @pytest.mark.auth
 def test_get_api_key_valid_user(email=valid_email, password=valid_password):
     '''Проверяем что код статуса запроса 200 и в переменной result
-    содержится слово key'''
-    status, result = pf.get_app_key(email, password)
+    содержится слово key.     • Заголовок ответа содержит:
+    Обязательно - Content-type: aplication/json или application/xml'''
+    status, result, responce_headers = pf.get_app_key(email, password)
     assert status == 200
     assert 'key' in result
-    return status, result, email, password
+    assert responce_headers['content-type'] == 'application/json' or 'application/xml'
+    return status, result, email, password, responce_headers

@@ -36,7 +36,8 @@ def log_api(func):
         signature = func(*args, **kwargs)
         status = str(signature[0])
         result = str(signature[1])
-        request = str(signature[2:])
+        request = str(signature[2:4])
+        responce_headers = str(signature[4:])
         with open('log.txt', 'w', encoding='utf8') as f:
             f.write(f'''Информация запроса:
 ------------------
@@ -47,5 +48,8 @@ def log_api(func):
 
 Информация ответа:
 ------------------
-{result}''')
+Тело ответа:
+{result}
+Заголовок ответа:
+{responce_headers}''')
     return wrapper

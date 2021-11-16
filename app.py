@@ -19,14 +19,14 @@ class PetFriends:
             'password': password
         }
         res = requests.get(self.base_url + 'api/key', headers=headers)
-
         status = res.status_code
+        res_headers = res.headers
         result = ''
         try:
             result = res.json()
         except:
             result = res.text
-        return status, result
+        return status, result, res_headers
 
     def get_list_of_pets(self, auth_key: json, filter: str) -> json:
         '''Метод делает get запрос к API сервера с секретным ключом в headers и
@@ -38,12 +38,13 @@ class PetFriends:
         res = requests.get(self.base_url + 'api/pets', headers=headers, params=filter)
 
         status = res.status_code
+        res_headers = res.headers
         result = ''
         try:
             result = res.json()
         except:
             result = res.text
-        return status, result
+        return status, result, res_headers
 
     def add_new_pets(self, auth_key: json, name: str, animal_type: str, age: str, pet_photo: str) -> json:
         '''Метод делает post запрос к API сервера, добавляет данные data на сайт PetFriends и

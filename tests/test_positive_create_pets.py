@@ -10,7 +10,7 @@ pf = PetFriends()
 ###########################################################################################
 
 @log_api
-@pytest.mark.ui
+@pytest.mark.api
 @pytest.mark.event
 def test_add_pets_with_valid_data(get_key,name='Fedor', animal_type='cat', age='3', pet_photo='images/Fedor.jpg'):
     '''Проверяем что код статуса запроса 200 и что список с добавленными данными не пустой для этого
@@ -28,7 +28,7 @@ def test_add_pets_with_valid_data(get_key,name='Fedor', animal_type='cat', age='
 ###############################################################################################
 
 @log_api
-@pytest.mark.ui
+@pytest.mark.api
 @pytest.mark.event
 def test_add_pets_with_valid_data_without_photo(get_key, name='МурзикБезФото', animal_type='кот', age='6'):
     '''Проверяем возможность добавления нового питомца без фото
